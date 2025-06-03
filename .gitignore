@@ -1,0 +1,4 @@
+bun.lock
+package-lock.lock
+node_modules
+Build
