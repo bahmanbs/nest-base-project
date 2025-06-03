@@ -1,0 +1,254 @@
+{
+	"class":
+	{
+		"scope": "javascript,typescript",
+		"prefix": "cls",
+		"body": [
+			"export default class $TM_FILENAME_BASE",
+			"{",
+			"\t$1",
+			"}",
+			"$2"
+		]
+	},
+	"interface":
+	{
+		"scope": "javascript,typescript",
+		"prefix": "inter",
+		"body": [
+			"export const $TM_FILENAME_BASE = Symbol(\"$TM_FILENAME_BASE\").valueOf()",
+			"export interface $TM_FILENAME_BASE",
+			"{ }",
+			""
+		]
+	},
+	"PrivateField":
+	{
+		"scope": "javascript,typescript",
+		"prefix": "pri",
+		"body": [
+			"\tprivate _$1: $2;",
+			"",
+			"\tpublic get $1(): $2",
+			"\t{",
+			"\t\treturn this._$1;",
+			"\t}",
+			"",
+			"\tprivate set $1($1: $2)",
+			"\t{",
+			"\t\tthis._$1 = $1;",
+			"\t}"
+		]
+	},
+	"ProtectedField":
+	{
+		"scope": "javascript,typescript",
+		"prefix": "pro",
+		"body": [
+			"\tprotected _$1: $2;",
+			"",
+			"\tpublic get $1(): $2",
+			"\t{",
+			"\t\treturn this._$1;",
+			"\t}",
+			"",
+			"\tprotected set $1($1: $2)",
+			"\t{",
+			"\t\tthis._$1 = $1;",
+			"\t}"
+		]
+	},
+	"PublicField":
+	{
+		"scope": "javascript,typescript",
+		"prefix": "p",
+		"body": [
+			"public $1: $2;"
+		]
+	},
+	"events":
+	{
+		"scope": "typescript",
+		"prefix": "de",
+		"body":[
+			"import DomainEvent from \"Src/Common/Main/Ts/Domain/SeedWorks/DomainEvent\";",
+			"",
+			"export default class $TM_FILENAME_BASE extends DomainEvent",
+			"{",
+			"\tpublic constructor ($1)",
+			"\t{",
+			"\t\tsuper();",
+			"\t}",
+			"}",
+			""
+		]
+	},
+	"describe":
+	{
+		"scope": "typescript",
+		"prefix": "desc",
+		"body":[
+			"describe(\"$TM_FILENAME_BASE$1\", () =>",
+			"{",
+			"\tit(\"$2\", () =>",
+			"\t{",
+			"\t\t$3",
+			"\t})",
+			"})",
+			""
+		]
+	},
+	"it":
+	{
+		"scope": "typescript",
+		"prefix": "jit",
+		"body":[
+			"it(\"$1\", () =>",
+			"{",
+			"\t$2",
+			"})"
+		]
+	},
+	"ValueObject":
+	{
+		"scope": "typescript",
+		"prefix": "vo",
+		"body": [
+			"import Result from \"Src/Common/Main/Ts/Application/Result\";",
+			"import ValueObject from \"Src/Common/Main/Ts/Domain/SeedWorks/ValueObject\";",
+			"",
+			"export default class $TM_FILENAME_BASE extends ValueObject<$1>",
+			"{",
+			"\tpublic static createFromInput(a$TM_FILENAME_BASE: $1): Result<$TM_FILENAME_BASE>",
+			"\t{",
+			"\t\treturn Result.ok(new $TM_FILENAME_BASE({ value: a$TM_FILENAME_BASE }))",
+			"\t}",
+			"",
+			"\tpublic static createFromValid(a$TM_FILENAME_BASE: $1): Result<$TM_FILENAME_BASE>",
+			"\t{",
+			"\t\treturn Result.ok(new $TM_FILENAME_BASE({ value: a$TM_FILENAME_BASE }))",
+			"\t}",
+			"}",
+			""
+		]
+	},
+	"Entity":
+	{
+		"scope": "typescript",
+		"prefix": "entity",
+		"body": [
+			"import Entity from \"Src/Common/Main/Ts/Domain/SeedWorks/Entity\";",
+			"",
+			"export default class $TM_FILENAME_BASE extends Entity<${TM_FILENAME_BASE}Id>",
+			"{",
+			"\t$2",
+			"}",
+			""
+		]
+	},
+	"AggregateRoot":
+	{
+		"scope": "typescript",
+		"prefix": "aggregate",
+		"body": [
+			"import AggregateRoot from \"Src/Common/Main/Ts/Domain/SeedWorks/AggregateRoot\";",
+			"",
+			"export default class $TM_FILENAME_BASE extends AggregateRoot<${TM_FILENAME_BASE}Id>",
+			"{",
+			"\t$2",
+			"",
+			"\tpublic validateInvariant(): void",
+			"\t{",
+			"\t\tthrow new Error(\"Method not implemented.\");",
+			"\t}",
+			"}",
+			""
+		]
+	},
+	"Command":
+	{
+		"scope": "typescript",
+		"prefix": "command",
+		"body":[
+			"export default class ${TM_FILENAME_BASE}",
+			"{",
+			"\tpublic $1",
+			"}",
+			""
+		]
+	},
+	"Specification":
+	{
+		"scope": "typescript",
+		"prefix": "specification",
+		"body": [
+			"import Specification from \"Src/Common/Main/Ts/Application/Specifications/Specification\";",
+			"",
+			"export default class ${TM_FILENAME_BASE} extends Specification<$1>",
+			"{",
+				"\tpublic isSatisfiedBy(entity: $1): boolean",
+				"\t{",
+				"\t\tthrow new Error(\"Method not implemented.\");",
+				"\t}",
+				"",
+				"\tpublic check(entity: $1): boolean",
+				"\t{",
+				"\t\treturn this.isSatisfiedBy(entity);",
+				"\t}",
+    		"}",
+			""
+		]
+	},
+	"Identity ValueObject":
+	{
+		"scope": "typescript",
+		"prefix": "id",
+		"body": [
+			"import ULID from \"Src/Common/Main/Ts/Infrastructure/ULID\";",
+			"",
+			"export default class ${TM_FILENAME_BASE} extends ULID",
+			"{ }",
+			""
+		]
+	},
+	"Mapper": {
+		"scope": "typescript",
+		"prefix": "mapper",
+		"body": [
+			"import { Mapper, MappingProfile, createMap, forMember, mapFrom } from \"@automapper/core\";",
+			"import { AutomapperProfile, InjectMapper } from \"@automapper/nestjs\";",
+			"import { Injectable } from \"@nestjs/common\";",
+			"",
+			"@Injectable()",
+			"export default class ${TM_FILENAME_BASE} extends AutomapperProfile",
+			"{",
+				"\tpublic constructor (@InjectMapper() mapper: Mapper)",
+				"\t{",
+					"\t\tsuper(mapper);",
+				"\t}",
+				"\t// eslint-disable-next-line accessor-pairs",
+				"\tpublic get profile(): MappingProfile",
+				"\t{",
+					"\t\treturn function (mapper)",
+					"\t\t{",
+						"\t\t\tcreateMap(mapper, $1, $2,",
+							"\t\t\t\tforMember((destination) => destination.$3, mapFrom((source) => source.$4)),",
+						"\t\t\t);",
+					"\t\t};",
+				"\t}",
+			"}"
+		]
+	},
+	"UseCase": {
+		"scope": "typescript",
+		"prefix": "uc",
+		"body": [
+			"import { ICommandHandler } from \"Src/Common/Main/Ts/Application/ICommandHandler\";",
+			"",
+			"export const ${TM_FILENAME_BASE} = Symbol(\"${TM_FILENAME_BASE}\").valueOf();",
+			"export interface ${TM_FILENAME_BASE} extends ICommandHandler<$1, Promise<$2>>",
+			"{ }",
+			""
+		]
+	}
+}
